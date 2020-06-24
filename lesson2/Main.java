@@ -174,7 +174,7 @@ public class Main {
 
         for(int i = 0; i < strArr.length; i++)
             for (int j = 0; j < strArr[i].length; j++)
-                if (isInteger(strArr[i][j])) sum += new Integer(strArr[i][j]);
+                if (isInteger(strArr[i][j])) sum += Integer.parseInt(strArr[i][j]);
                 else throw new MyArrayDataException("Illegal argument!", new int[]{i, j});
 
         return sum;
