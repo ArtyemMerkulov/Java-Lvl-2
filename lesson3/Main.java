@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Main {
-    private static final int N_STRINGS = 21;
+    private static final int N_STRINGS = 20;
     private static final int MIN_V = 0;
     private static final int MAX_V = 9;
 
@@ -68,5 +68,5 @@ public class Main {
         return numStrings;
     }
 
-    private static int getRandomIntInclusive(int min, int max) { return min + new Random().nextInt(max); }
+    private static int getRandomIntInclusive(int min, int max) { return min + new Random().nextInt(max + 1); }
 }
