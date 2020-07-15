@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controller">
+
+   <VBox fx:id="authPanel" maxWidth="200.0" alignment="CENTER">
+      <Label fx:id="authLabel" textAlignment="CENTER" visible="false"></Label>
+      <TextField onAction="#tryToAuth" fx:id="loginField" promptText="Enter your login"/>
+      <PasswordField onAction="#tryToAuth" fx:id="passwordField" promptText="Enter your password"/>
+      <Button onMouseReleased="#tryToAuth" prefWidth="75.0" prefHeight="30.0" text="Log in"/>
+   </VBox>
+
+   <HBox fx:id="chatPanel" managed="false" visible="false">
+      <VBox prefWidth="235.0" style="-fx-background-color: #0A0C27;">
+         <Pane prefHeight="55.0">
+            <ImageView onMouseReleased="#getOptions" fitHeight="40.0" fitWidth="40.0" layoutX="15.0" layoutY="15.0"
+                       pickOnBounds="true" preserveRatio="true">
+               <Image url="/images/options.png"/>
+            </ImageView>
+            <TextField fx:id="searcher" onAction="#findContact" layoutX="70.0" layoutY="15.0" prefWidth="150"
+                       prefHeight="25.0" promptText="Search..."/>
+         </Pane>
+
+         <Pane>
+            <Line endX="235.0" stroke="#3b4268"/>
+            <VBox fx:id="contactsPane" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" prefWidth="235.0">
+
+            </VBox>
+         </Pane>
+      </VBox>
+
+      <VBox HBox.hgrow="ALWAYS">
+         <Pane fx:id="conversationLabelPane" prefHeight="56.0" style="-fx-border-color: #636470;">
+
+         </Pane>
+
+         <Pane>
+            <VBox>
+               <Line endX="495.0" stroke="#3b4268"/>
+               <ScrollPane fx:id="dialogScrollPane" prefViewportHeight="490" prefWidth="495" vvalue="1.0">
+                  <VBox fx:id="dialogPane" spacing="10">
+
+                  </VBox>
+               </ScrollPane>
+            </VBox>
+         </Pane>
+
+         <Pane fx:id="sendMsgPane" style="-fx-background-color: white;" visible="false" managed="false">
+            <HBox>
+               <TextField onAction="#sendMsg" fx:id="printedMsg" prefWidth="455.0" prefHeight="40.0"
+                          promptText="Enter message..."/>
+               <ImageView onMouseReleased="#sendMsg" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <Image url="/images/send_msg_button.png"/>
+               </ImageView>
+            </HBox>
+         </Pane>
+      </VBox>
+   </HBox>
+
+</VBox>
